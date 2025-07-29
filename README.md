@@ -4,7 +4,7 @@
 
 ---
 
-## 🌊 **Vague 1 : Stratégie & Vision d’Entreprise (7 rôles)**
+## 🌊 **Axe 1 : Stratégie & Vision d’Entreprise (7 rôles)**
 
 ---
 
@@ -74,7 +74,7 @@
 
 ---
 
-## 🌊 **Vague 2 : Gouvernance & Alignement Organisationnel (7 rôles)**
+## 🌊 **Axe 2 : Gouvernance & Alignement Organisationnel (7 rôles)**
 
 ---
 
@@ -141,7 +141,7 @@
 
 ---
 
-## 🌊 **Vague 3 : Architecture & Conception Technique (7 rôles)**
+## 🌊 **Axe 3 : Architecture & Conception Technique (7 rôles)**
 
 ---
 
@@ -209,7 +209,7 @@
 ---
 
 
-## 🌊 **Vague 4 : Surveillance, Conformité & Résilience (7 rôles)**
+## 🌊 **Axe 4 : Surveillance, Conformité & Résilience (7 rôles)**
 
 ---
 
@@ -277,7 +277,7 @@
 
 ---
 
-## 🌊 **Vague 5 : Écosystème, Culture & Impact Humain (7 rôles)**
+## 🌊 **Axe 5 : Écosystème, Culture & Impact Humain (7 rôles)**
 
 ---
 
