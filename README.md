@@ -1,6 +1,5 @@
 # Architecte IT in action
 
-
 # 🎯 **Architecte IT : Perception vs Réalité - Vision 360° en 35 Rôles**
 
 ---
