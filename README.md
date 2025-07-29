@@ -4,6 +4,50 @@
 
 ---
 
+## 🧾 **Introduction**
+
+Le rôle de l’**Architecte IT** est souvent réduit à une caricature : *« celui qui dessine des boîtes et des flèches »*. Pourtant, dans les coulisses de chaque système d’information fiable, sécurisé, évolutif et conforme, se cache une expertise transversale et stratégique que peu de métiers peuvent revendiquer.
+
+L’architecte n’est **ni un simple technicien**, **ni un pur stratège**. Il est à la fois :
+
+* 🧠 **Un penseur systémique**,
+* ⚙️ **Un ingénieur de la cohérence technique**,
+* 🤝 **Un médiateur entre directions, métiers et développeurs**,
+* 🚀 **Un pilote de transformation digitale**.
+
+Dans un monde numérique de plus en plus complexe — mêlant cloud, DevOps, données massives, cybersécurité, réglementation, IA, IoT, performance, sobriété numérique et éthique — l’architecte doit être **multi-compétent, adaptable et visionnaire**.
+
+Ce document propose une **vision 360° du métier**, à travers **35 rôles concrets** répartis en **5 grands axes** d’intervention :
+
+1. **Stratégie & Vision d’Entreprise**
+2. **Gouvernance & Alignement Organisationnel**
+3. **Architecture & Conception Technique**
+4. **Surveillance, Conformité & Résilience**
+5. **Écosystème, Culture & Impact Humain**
+
+Chaque rôle est détaillé avec :
+
+* 🎭 Une **perception fréquente** (souvent erronée),
+* 🧩 Un **rôle réel** et stratégique,
+* ✅ Des **bonnes pratiques** reconnues,
+* 📏 Des **métriques clés**,
+* 💼 Un **cas d’usage concret**.
+
+---
+
+🔍 **Objectif** : Donner aux professionnels, managers, décideurs et jeunes talents une compréhension claire, complète et valorisante de la **valeur ajoutée** de l’architecture IT.
+
+📌 **À retenir** :
+
+> “L’architecture IT, c’est moins dessiner des systèmes que permettre à l’entreprise de tenir ses promesses dans un monde numérique instable.”
+
+---
+
+
+## 🎯 **Perception vs Réalité — Vision 360° en 35 Rôles**
+
+---
+
 ## 🌊 **Axe 1 — Stratégie & Vision d’Entreprise (7 rôles)**
 
 ---
