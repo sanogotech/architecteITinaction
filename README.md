@@ -33,6 +33,8 @@ Chaque rôle est détaillé avec :
 * 📏 Des **métriques clés**,
 * 💼 Un **cas d’usage concret**.
 
+
+
 ---
 
 🔍 **Objectif** : Donner aux professionnels, managers, décideurs et jeunes talents une compréhension claire, complète et valorisante de la **valeur ajoutée** de l’architecture IT.
@@ -40,6 +42,8 @@ Chaque rôle est détaillé avec :
 📌 **À retenir** :
 
 > “L’architecture IT, c’est moins dessiner des systèmes que permettre à l’entreprise de tenir ses promesses dans un monde numérique instable.”
+
+![IT Architecte](https://github.com/sanogotech/architecteITinaction/blob/main/images/ITArchitecte.jpg)
 
 ---
 
