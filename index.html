@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecte IT in Action - Les 35 Rôles</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --light-bg: #f8f9fa;
+      --dark-bg: #343a40;
+      --architecture-purple: #8e44ad;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: white;
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--architecture-purple) 100%);
+      color: white;
+      padding: 4rem 0;
+      margin-bottom: 3rem;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-header {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    .axis-card .card-header {
+      background-color: var(--architecture-purple);
+    }
+
+    .module-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+
+    .btn-primary {
+      background-color: var(--architecture-purple);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #7d3c98;
+    }
+
+    .btn-outline-primary {
+      color: var(--architecture-purple);
+      border-color: var(--architecture-purple);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--architecture-purple);
+      color: white;
+    }
+
+    .role-container {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+    }
+
+    .highlight-box {
+      background-color: rgba(142, 68, 173, 0.1);
+      border-left: 4px solid var(--architecture-purple);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .linked-modules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .linked-module {
+      background-color: var(--light-bg);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      color: var(--primary-color);
+      border: 1px solid #ddd;
+    }
+
+    .tab-content {
+      padding: 1.5rem 0;
+    }
+
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    /* Animation pour les cartes */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .module-card {
+      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    /* Délai d'animation pour chaque carte */
+    .module-card:nth-child(1) { animation-delay: 0.1s; }
+    .module-card:nth-child(2) { animation-delay: 0.2s; }
+    .module-card:nth-child(3) { animation-delay: 0.3s; }
+    .module-card:nth-child(4) { animation-delay: 0.4s; }
+    .module-card:nth-child(5) { animation-delay: 0.5s; }
+    .module-card:nth-child(6) { animation-delay: 0.6s; }
+    .module-card:nth-child(7) { animation-delay: 0.7s; }
+
+    /* Role details styles */
+    .role-detail {
+      border-left: 4px solid var(--architecture-purple);
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .role-perception {
+      background-color: #f8d7da;
+      border-left: 4px solid #dc3545;
+      padding: 1rem;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 1rem;
+    }
+
+    .role-reality {
+      background-color: #d1e7dd;
+      border-left: 4px solid #198754;
+      padding: 1rem;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 1rem;
+    }
+
+    .role-practices {
+      background-color: #cfe2ff;
+      border-left: 4px solid #0d6efd;
+      padding: 1rem;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 1rem;
+    }
+
+    .role-metrics {
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 1rem;
+    }
+
+    .role-example {
+      background-color: #e2e3e5;
+      border-left: 4px solid #6c757d;
+      padding: 1rem;
+      border-radius: 0 5px 5px 0;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 2rem 0;
+      }
+
+      .module-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-building-gear me-2"></i>Architecte IT in Action
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#introduction">Introduction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#axes">5 Axes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#roles">35 Rôles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#cas-pratiques">Cas pratiques</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ressources">Ressources</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold mb-3">Architecte IT in Action</h1>
+      <p class="lead mb-4">Découvrez les 35 rôles stratégiques de l'architecte IT à travers une vision 360°</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="#axes" class="btn btn-light btn-lg px-4">Explorer les axes</a>
+        <a href="#roles" class="btn btn-outline-light btn-lg px-4">Voir tous les rôles</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container mb-5">
+    <section id="introduction" class="mb-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="mb-4">Perception vs Réalité</h2>
+          <p class="lead">Le rôle de l'architecte IT est souvent réduit à une caricature : "celui qui dessine des boîtes et des flèches". Pourtant, c'est une expertise transversale et stratégique que peu de métiers peuvent revendiquer.</p>
+          <div class="d-flex justify-content-center mt-4">
+            <div class="px-4 text-center">
+              <i class="bi bi-lightbulb fs-1 text-purple" style="color: var(--architecture-purple);"></i>
+              <p class="mt-2 fw-bold">Visionnaire</p>
+            </div>
+            <div class="px-4 text-center">
+              <i class="bi bi-gear fs-1 text-purple" style="color: var(--architecture-purple);"></i>
+              <p class="mt-2 fw-bold">Technologue</p>
+            </div>
+            <div class="px-4 text-center">
+              <i class="bi bi-people fs-1 text-purple" style="color: var(--architecture-purple);"></i>
+              <p class="mt-2 fw-bold">Médiateur</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="axes" class="mb-5">
+      <h2 class="text-center mb-4">Les 5 Grands Axes d'Intervention</h2>
+      
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="card h-100 axis-card">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-bullseye me-2"></i>
+              <h5 class="mb-0">1. Stratégie & Vision d'Entreprise</h5>
+            </div>
+            <div class="card-body">
+              <p>7 rôles qui positionnent l'architecte comme un penseur systémique alignant la technologie avec la stratégie business.</p>
+              <div class="highlight-box">
+                <p><strong>Exemples de rôles :</strong></p>
+                <ul>
+                  <li>Maître de la Complexité</li>
+                  <li>Stratège Financier</li>
+                  <li>Leader de la Transformation Digitale</li>
+                </ul>
+              </div>
+              <a href="#axe1" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-arrow-right me-1"></i>Voir les 7 rôles
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card h-100 axis-card">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-diagram-3 me-2"></i>
+              <h5 class="mb-0">2. Gouvernance & Alignement Organisationnel</h5>
+            </div>
+            <div class="card-body">
+              <p>7 rôles qui structurent les interactions entre métiers, techniques et conformité.</p>
+              <div class="highlight-box">
+                <p><strong>Exemples de rôles :</strong></p>
+                <ul>
+                  <li>Médiateur des Parties Prenantes</li>
+                  <li>Évangéliste de la Gouvernance</li>
+                  <li>Coach Méthodologique</li>
+                </ul>
+              </div>
+              <a href="#axe2" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-arrow-right me-1"></i>Voir les 7 rôles
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <div class="card h-100 axis-card">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-cpu me-2"></i>
+              <h5 class="mb-0">3. Architecture & Conception Technique</h5>
+            </div>
+            <div class="card-body">
+              <p>7 rôles centrés sur la conception de systèmes robustes et évolutifs.</p>
+              <div class="linked-modules">
+                <span class="linked-module">Sécurité</span>
+                <span class="linked-module">Données</span>
+                <span class="linked-module">Intégration</span>
+              </div>
+              <a href="#axe3" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-arrow-right me-1"></i>Voir les 7 rôles
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100 axis-card">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-shield-check me-2"></i>
+              <h5 class="mb-0">4. Surveillance, Conformité & Résilience</h5>
+            </div>
+            <div class="card-body">
+              <p>7 rôles garantissant la robustesse et la conformité des systèmes.</p>
+              <div class="linked-modules">
+                <span class="linked-module">Résilience</span>
+                <span class="linked-module">Conformité</span>
+                <span class="linked-module">Performance</span>
+              </div>
+              <a href="#axe4" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-arrow-right me-1"></i>Voir les 7 rôles
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="card h-100 axis-card">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-people-fill me-2"></i>
+              <h5 class="mb-0">5. Écosystème, Culture & Impact Humain</h5>
+            </div>
+            <div class="card-body">
+              <p>7 rôles centrés sur les dimensions humaines et organisationnelles.</p>
+              <div class="linked-modules">
+                <span class="linked-module">Formation</span>
+                <span class="linked-module">Culture</span>
+                <span class="linked-module">Éthique</span>
+              </div>
+              <a href="#axe5" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-arrow-right me-1"></i>Voir les 7 rôles
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roles" class="mb-5">
+      <h2 class="text-center mb-4">Les 35 Rôles en Détail</h2>
+      
+      <ul class="nav nav-tabs justify-content-center mb-4" id="rolesTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="axe1-tab" data-bs-toggle="tab" data-bs-target="#axe1" type="button" role="tab">Axe 1</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="axe2-tab" data-bs-toggle="tab" data-bs-target="#axe2" type="button" role="tab">Axe 2</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="axe3-tab" data-bs-toggle="tab" data-bs-target="#axe3" type="button" role="tab">Axe 3</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="axe4-tab" data-bs-toggle="tab" data-bs-target="#axe4" type="button" role="tab">Axe 4</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="axe5-tab" data-bs-toggle="tab" data-bs-target="#axe5" type="button" role="tab">Axe 5</button>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="rolesTabContent">
+        <div class="tab-pane fade show active" id="axe1" role="tabpanel">
+          <h3 class="text-center mb-4"><i class="bi bi-bullseye me-2"></i>Stratégie & Vision d'Entreprise</h3>
+          
+          <div class="role-container">
+            <div class="role-detail">
+              <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">1</span> Maître de la Complexité</h4>
+              <div class="role-perception">
+                <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                <p>Il complique les choses.</p>
+              </div>
+              <div class="role-reality">
+                <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                <p>Synthétiser enjeux métiers, techniques, financiers et humains.</p>
+              </div>
+              <div class="role-practices">
+                <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                <p>ArchiMate, TOGAF, C4 Model.</p>
+              </div>
+              <div class="role-metrics">
+                <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                <p>Délai d'analyse, alignement des décisions avec les objectifs métier.</p>
+              </div>
+              <div class="role-example">
+                <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                <p>SI d'un ministère interconnecté avec 20 partenaires publics.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-container">
+            <div class="role-detail">
+              <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">2</span> Stratège Financier</h4>
+              <div class="role-perception">
+                <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                <p>Il ignore les coûts.</p>
+              </div>
+              <div class="role-reality">
+                <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                <p>Évaluer TCO, ROI, dette technique.</p>
+              </div>
+              <div class="role-practices">
+                <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                <p>Business Case, FinOps.</p>
+              </div>
+              <div class="role-metrics">
+                <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                <p>ROI, coût de possession, taux de réutilisation.</p>
+              </div>
+              <div class="role-example">
+                <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                <p>Choix entre cloud privé et SaaS pour un service RH.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ajouter les autres rôles de l'axe 1 de la même manière -->
+          <div class="text-center mt-4">
+            <button class="btn btn-outline-primary" onclick="showAllRoles('axe1')">
+              <i class="bi bi-arrows-angle-expand me-1"></i>Voir les 7 rôles complets
+            </button>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="axe2" role="tabpanel">
+          <h3 class="text-center mb-4"><i class="bi bi-diagram-3 me-2"></i>Gouvernance & Alignement Organisationnel</h3>
+          
+          <div class="role-container">
+            <div class="role-detail">
+              <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">8</span> Médiateur des Parties Prenantes</h4>
+              <div class="role-perception">
+                <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                <p>Il prend trop de temps en réunions.</p>
+              </div>
+              <div class="role-reality">
+                <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                <p>Traduire les langages métier, technique et conformité.</p>
+              </div>
+              <div class="role-practices">
+                <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                <p>Matrice RACI, ateliers co-design.</p>
+              </div>
+              <div class="role-metrics">
+                <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                <p>Nombre de conflits résolus, satisfaction des parties.</p>
+              </div>
+              <div class="role-example">
+                <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                <p>Refonte d'un portail transverse RH/Finance/Production.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="role-container">
+            <div class="role-detail">
+              <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">9</span> Évangéliste de la Gouvernance</h4>
+              <div class="role-perception">
+                <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                <p>Il impose des règles bureaucratiques.</p>
+              </div>
+              <div class="role-reality">
+                <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                <p>Mettre en place des règles, modèles, standards.</p>
+              </div>
+              <div class="role-practices">
+                <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                <p>Design Authority Board, standardisation des pratiques.</p>
+              </div>
+              <div class="role-metrics">
+                <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                <p>Taux de conformité, réussite aux audits.</p>
+              </div>
+              <div class="role-example">
+                <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                <p>Gouvernance multi-entité dans le secteur public.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ajouter les autres rôles de l'axe 2 de la même manière -->
+          <div class="text-center mt-4">
+            <button class="btn btn-outline-primary" onclick="showAllRoles('axe2')">
+              <i class="bi bi-arrows-angle-expand me-1"></i>Voir les 7 rôles complets
+            </button>
+          </div>
+        </div>
+
+        <!-- Continuer avec les autres axes (3, 4, 5) de la même manière -->
+        
+      </div>
+    </section>
+
+    <section id="cas-pratiques" class="mb-5">
+      <h2 class="text-center mb-4">Cas pratiques d'architecture IT</h2>
+      
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-cloud me-2"></i>
+              <h5 class="mb-0">Migration vers le Cloud</h5>
+            </div>
+            <div class="card-body">
+              <p>Une entreprise veut migrer son SI vers le cloud en minimisant les risques.</p>
+              <p><strong>Rôles clés :</strong> Stratège Financier, Architecte DevOps/CloudOps, Responsable de l'Alignement Réglementaire.</p>
+              <button class="btn btn-primary btn-sm mt-2" onclick="showCaseStudy('cloud')">
+                <i class="bi bi-journal-text me-1"></i>Voir la solution
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-shield-lock me-2"></i>
+              <h5 class="mb-0">Modernisation Sécurité</h5>
+            </div>
+            <div class="card-body">
+              <p>Mise en conformité RGPD et sécurisation d'un portail client.</p>
+              <p><strong>Rôles clés :</strong> Responsable Sécurité by Design, Architecte Zero Trust, Manager de la Sécurité Applicative.</p>
+              <button class="btn btn-primary btn-sm mt-2" onclick="showCaseStudy('security')">
+                <i class="bi bi-journal-text me-1"></i>Voir la solution
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-arrow-repeat me-2"></i>
+              <h5 class="mb-0">Transformation Agile</h5>
+            </div>
+            <div class="card-body">
+              <p>Passage d'une DSI traditionnelle à une organisation agile.</p>
+              <p><strong>Rôles clés :</strong> Coach Méthodologique, Change Leader, Ambassadeur Interne.</p>
+              <button class="btn btn-primary btn-sm mt-2" onclick="showCaseStudy('agile')">
+                <i class="bi bi-journal-text me-1"></i>Voir la solution
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-header d-flex align-items-center">
+              <i class="bi bi-database me-2"></i>
+              <h5 class="mb-0">Modernisation Data</h5>
+            </div>
+            <div class="card-body">
+              <p>Création d'un data lake fédéré pour une meilleure exploitation des données.</p>
+              <p><strong>Rôles clés :</strong> Architecte Données, Curateur du Portefeuille Applicatif, Responsable de la Qualité SI.</p>
+              <button class="btn btn-primary btn-sm mt-2" onclick="showCaseStudy('data')">
+                <i class="bi bi-journal-text me-1"></i>Voir la solution
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ressources" class="mb-5">
+      <h2 class="text-center mb-4">Ressources pour Architectes IT</h2>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5 class="mb-0">Cadres et Méthodes</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">TOGAF</li>
+                <li class="list-group-item">ArchiMate</li>
+                <li class="list-group-item">Zachman Framework</li>
+                <li class="list-group-item">IT4IT</li>
+                <li class="list-group-item">C4 Model</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-header">
+              <h5 class="mb-0">Certifications</h5>
+            </div>
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">TOGAF Certified</li>
+                <li class="list-group-item">AWS/Azure/GCP Architect</li>
+                <li class="list-group-item">CISSP</li>
+                <li class="list-group-item">CDMP (Data Management)</li>
+                <li class="list-group-item">ITIL Architect</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Communautés</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <h6>Internationales</h6>
+              <ul>
+                <li>IASA (International Association of Software Architects)</li>
+                <li>The Open Group</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h6>Francophones</h6>
+              <ul>
+                <li>Club Urba-EA</li>
+                <li>Architecte IT sur LinkedIn</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h6>Événements</h6>
+              <ul>
+                <li>Architecte 360°</li>
+                <li>Devoxx</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container text-center">
+      <p class="mb-0">Architecte IT in Action - Vision 360° en 35 Rôles</p>
+      <p class="mb-0">© 2023 - Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <!-- Modal for details -->
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailsModalLabel">Détails</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="detailsModalContent">
+          Chargement...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Modal functions
+    const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+    const detailsModalTitle = document.getElementById('detailsModalLabel');
+    const detailsModalContent = document.getElementById('detailsModalContent');
+
+    function showAllRoles(axis) {
+      let title = '';
+      let content = '';
+
+      switch(axis) {
+        case 'axe1':
+          title = 'Axe 1 - Stratégie & Vision d\'Entreprise - 7 Rôles';
+          content = `
+            <div class="role-container">
+              <div class="role-detail">
+                <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">1</span> Maître de la Complexité</h4>
+                <div class="role-perception">
+                  <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                  <p>Il complique les choses.</p>
+                </div>
+                <div class="role-reality">
+                  <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                  <p>Synthétiser enjeux métiers, techniques, financiers et humains.</p>
+                </div>
+                <div class="role-practices">
+                  <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                  <p>ArchiMate, TOGAF, C4 Model.</p>
+                </div>
+                <div class="role-metrics">
+                  <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                  <p>Délai d'analyse, alignement des décisions avec les objectifs métier.</p>
+                </div>
+                <div class="role-example">
+                  <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                  <p>SI d'un ministère interconnecté avec 20 partenaires publics.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-container">
+              <div class="role-detail">
+                <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">2</span> Stratège Financier</h4>
+                <div class="role-perception">
+                  <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                  <p>Il ignore les coûts.</p>
+                </div>
+                <div class="role-reality">
+                  <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                  <p>Évaluer TCO, ROI, dette technique.</p>
+                </div>
+                <div class="role-practices">
+                  <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                  <p>Business Case, FinOps.</p>
+                </div>
+                <div class="role-metrics">
+                  <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                  <p>ROI, coût de possession, taux de réutilisation.</p>
+                </div>
+                <div class="role-example">
+                  <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                  <p>Choix entre cloud privé et SaaS pour un service RH.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ajouter les 5 autres rôles de l'axe 1 -->
+          `;
+          break;
+        case 'axe2':
+          title = 'Axe 2 - Gouvernance & Alignement Organisationnel - 7 Rôles';
+          content = `
+            <div class="role-container">
+              <div class="role-detail">
+                <h4><span class="badge bg-purple me-2" style="background-color: var(--architecture-purple);">8</span> Médiateur des Parties Prenantes</h4>
+                <div class="role-perception">
+                  <h5><i class="bi bi-eye me-2"></i>Perception</h5>
+                  <p>Il prend trop de temps en réunions.</p>
+                </div>
+                <div class="role-reality">
+                  <h5><i class="bi bi-lightbulb me-2"></i>Rôle réel</h5>
+                  <p>Traduire les langages métier, technique et conformité.</p>
+                </div>
+                <div class="role-practices">
+                  <h5><i class="bi bi-check-circle me-2"></i>Bonnes pratiques</h5>
+                  <p>Matrice RACI, ateliers co-design.</p>
+                </div>
+                <div class="role-metrics">
+                  <h5><i class="bi bi-graph-up me-2"></i>Métriques</h5>
+                  <p>Nombre de conflits résolus, satisfaction des parties.</p>
+                </div>
+                <div class="role-example">
+                  <h5><i class="bi bi-briefcase me-2"></i>Cas d'usage</h5>
+                  <p>Refonte d'un portail transverse RH/Finance/Production.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ajouter les 6 autres rôles de l'axe 2 -->
+          `;
+          break;
+      }
+
+      detailsModalTitle.textContent = title;
+      detailsModalContent.innerHTML = content;
+      detailsModal.show();
+    }
+
+    function showCaseStudy(caseId) {
+      let title = '';
+      let content = '';
+
+      switch(caseId) {
+        case 'cloud':
+          title = 'Cas pratique : Migration vers le Cloud';
+          content = `
+            <h5>Contexte :</h5>
+            <p>Une entreprise de services financiers souhaite migrer son système d'information vers le cloud tout en :</p>
+            <ul>
+              <li>Minimisant les risques opérationnels</li>
+              <li>Garantissant la conformité réglementaire</li>
+              <li>Optimisant les coûts</li>
+              <li>Préservant la performance</li>
+            </ul>
+            
+            <h5 class="mt-4">Rôles clés mobilisés :</h5>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-header bg-purple text-white" style="background-color: var(--architecture-purple);">
+                    <h6>Stratège Financier</h6>
+                  </div>
+                  <div class="card-body">
+                    <p>Évaluation TCO, comparaison des options (IaaS/PaaS/SaaS), calcul du ROI.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-header bg-purple text-white" style="background-color: var(--architecture-purple);">
+                    <h6>Architecte DevOps/CloudOps</h6>
+                  </div>
+                  <div class="card-body">
+                    <p>Conception de l'architecture cible, pipelines CI/CD, automatisation.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card mb-3">
+                  <div class="card-header bg-purple text-white" style="background-color: var(--architecture-purple);">
+                    <h6>Responsable Alignement Réglementaire</h6>
+                  </div>
+                  <div class="card-body">
+                    <p>Vérification conformité RGPD, audit des fournisseurs cloud.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <h5 class="mt-4">Approche :</h5>
+            <ol>
+              <li><strong>Évaluation initiale :</strong> Audit du SI existant, identification des workloads critiques</li>
+              <li><strong>Proof of Concept :</strong> Migration pilote d'une application non critique</li>
+              <li><strong>Migration par vagues :</strong> Par service métier, avec fallback possible</li>
+              <li><strong>Optimisation continue :</strong> Ajustement des ressources cloud après migration</li>
+            </ol>
+            
+            <h5 class="mt-4">Résultats :</h5>
+            <ul>
+              <li>Migration complète en 9 mois avec 0 interruption de service</li>
+              <li>Réduction de 35% des coûts infrastructure</li>
+              <li>Amélioration de 50% du time-to-market pour les nouvelles features</li>
+              <li>Conformité totale avec les régulations financières</li>
+            </ul>
+          `;
+          break;
+      }
+
+      detailsModalTitle.textContent = title;
+      detailsModalContent.innerHTML = content;
+      detailsModal.show();
+    }
+  </script>
+</body>
+</html>
