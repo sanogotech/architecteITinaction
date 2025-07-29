@@ -1,14 +1,5 @@
 # Architecte IT in action
 
-Parfait ! Voici la version **complète en 35 rôles**, structurée **par vagues thématiques**, avec pour **chaque rôle** :
-
-* 🎭 une **clarification de la perception vs réalité**,
-* 🧩 le **jeu de rôles typique**,
-* ✅ les **bonnes pratiques**,
-* 📏 les **métriques associées**,
-* 💼 un **cas d’usage concret**.
-
----
 
 # 🎯 **Architecte IT : Perception vs Réalité - Vision 360° en 35 Rôles**
 
